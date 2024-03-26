@@ -1,0 +1,136 @@
+<div class="container tm-container-gallery">
+    <div class="row">
+        <div class="col-12">
+          <h2 class="tm-text-primary tm-section-title mb-4 w">Skills</h2>
+          <div class="mb-5 tm-underline">
+            <div class="tm-underline-inner"></div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 col-md-4" style="padding-bottom: 50px;">
+        <h3 class="tm-text-primary mb-4 w">Languages</h3>
+        <hr style="border-color: #d1d1d133;">
+        <p>Web (HTML,CSS,JS)
+            <div class="w3-round w3-tiny skill_bar">
+                <div data-inviewport="bar-fill" style="width:70%;"><div style="padding-top: 1px;"></div>Expert</div>
+            </div>
+        </p>
+        <p>C#
+            <div class="w3-round w3-tiny skill_bar">
+                <div data-inviewport="bar-fill" style="width:60%;"><div style="padding-top: 1px;"></div>Proficient</div>
+            </div>
+        </p>
+        <p>C++
+            <div class="w3-round w3-tiny skill_bar">
+                <div data-inviewport="bar-fill" style="width:45%;"><div style="padding-top: 1px;"></div>Intermediate</div>
+            </div>
+        </p>
+        <p>SQL
+            <div class="w3-round w3-tiny skill_bar">
+                <div data-inviewport="bar-fill" style="width:40%;"><div style="padding-top: 1px;"></div>Intermediate</div>
+            </div>
+        </p>
+        <p>LUA
+            <div class="w3-round w3-tiny skill_bar">
+                <div data-inviewport="bar-fill" style="width:35%;"><div style="padding-top: 1px;"></div>Novice</div>
+            </div>
+        </p>
+    </div>  
+    <div class="col-sm-12 col-md-4" style="padding-bottom: 50px;">
+        <h3 class="tm-text-primary mb-4 w">Technologies</h3>
+        <hr style="border-color: #d1d1d133;">
+        <p>OSINT Framework
+            <div class="w3-round w3-tiny skill_bar">
+                <div data-inviewport="bar-fill" style="width:95%;"><div style="padding-top: 1px;">Excellent</div></div>
+            </div>
+        </p>
+        <p>Visual Studio
+            <div class="w3-round w3-tiny skill_bar">
+                <div data-inviewport="bar-fill" style="width:75%;"><div style="padding-top: 1px;">Proficient</div></div>
+            </div>
+        </p>
+        <p>Unreal Engine
+            <div class="w3-round w3-tiny skill_bar">
+                <div data-inviewport="bar-fill" style="width:70%;"><div style="padding-top: 1px;">Proficient</div></div>
+            </div>
+        </p>
+        <p>WordPress
+            <div class="w3-round w3-tiny skill_bar">
+                <div data-inviewport="bar-fill" style="width:65%;"><div style="padding-top: 1px;">Proficient</div></div>
+            </div>
+        </p>
+        <p>Unity
+            <div class="w3-round w3-tiny skill_bar">
+                <div data-inviewport="bar-fill" style="width:60%;"><div style="padding-top: 1px;">Proficient</div></div>
+            </div>
+        </p>
+        <p>Vuforia 
+            <div class="w3-round w3-tiny skill_bar">
+                <div data-inviewport="bar-fill" style="width:30%;"><div style="padding-top: 1px;">Novice</div></div>
+            </div>
+        </p>
+        <p>Azure
+            <div class="w3-round w3-tiny skill_bar">
+                <div data-inviewport="bar-fill" style="width:20%;"><div style="padding-top: 1px;">Novice</div></div>
+            </div>
+        </p>
+    </div>  
+    <div class="col-sm-12 col-md-4" style="padding-bottom: 50px;">
+        <h3 class="tm-text-primary mb-4 w">Skills</h3>
+        <hr style="border-color: #d1d1d133;">
+        <p>Software Development
+            <div class="w3-round w3-tiny skill_bar">
+                <div data-inviewport="bar-fill" style="width:90%;"><div style="padding-top: 1px;">Expert</div></div>
+            </div>
+        </p>
+        <p>Data Analyst
+            <div class="w3-round w3-tiny skill_bar">
+                <div data-inviewport="bar-fill" style="width:80%;"><div style="padding-top: 1px;">Expert</div></div>
+            </div>
+        </p>
+        <p>Adaptability
+            <div class="w3-round w3-tiny skill_bar">
+                <div data-inviewport="bar-fill" style="width:80%;"><div style="padding-top: 1px;">Expert</div></div>
+            </div>
+        </p>
+        <p>Techincal Writing
+            <div class="w3-round w3-tiny skill_bar">
+                <div data-inviewport="bar-fill" style="width:75%;"><div style="padding-top: 1px;">Proficient</div></div>
+            </div>
+        </p>
+        <p>Collaborative Programming
+            <div class="w3-round w3-tiny skill_bar">
+                <div data-inviewport="bar-fill" style="width:65%;"><div style="padding-top: 1px;">Proficient</div></div>
+            </div>
+        </p>
+        <p>Agile / Scrum
+            <div class="w3-round w3-tiny skill_bar">
+                <div data-inviewport="bar-fill" style="width:65%;"><div style="padding-top: 1px;">Proficient</div></div>
+            </div>
+        </p>
+        <p>Observational learning
+            <div class="w3-round w3-tiny skill_bar">
+                <div data-inviewport="bar-fill" style="width:60%;"><div style="padding-top: 1px;">Proficient</div></div>
+            </div>
+        </p>
+    </div> 
+</div>
+</div>
+
+<script>
+    const inViewport = (entries, observer) => {
+      entries.forEach(entry => {
+        entry.target.classList.toggle("is-inViewport", entry.isIntersecting);
+    });
+  };
+
+  const Obs = new IntersectionObserver(inViewport);
+  const obsOptions = {};
+
+    // Attach observer to every [data-inviewport] element:
+  const ELs_inViewport = document.querySelectorAll('[data-inviewport]');
+  ELs_inViewport.forEach(EL => {
+      Obs.observe(EL, obsOptions);
+  });
+</script>

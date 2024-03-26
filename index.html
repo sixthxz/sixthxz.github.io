@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- Load pages -->
+    <script src="js/jquery-1.9.1.min.js"></script>   
+    <script> 
+        $(function(){
+        // Función para cargar las páginas utilizando las rutas adecuadas
+            function loadPages(languagePrefix) {
+            // Definir la ruta base de las páginas
+                var basePath = "pages/";
+
+            // Definir la extensión de las páginas
+                var extension = ".html";
+
+            // Cargar las páginas utilizando las rutas adecuadas
+                $("#hero").load(basePath + languagePrefix + "home" + extension);
+                $("#about").load(basePath + languagePrefix + "about" + extension);
+                $("#skills").load(basePath + languagePrefix + "skills" + extension);
+                $("#resume").load(basePath + languagePrefix + "resume" + extension);
+                $("#projects").load(basePath + languagePrefix + "projects" + extension);
+                
+            // Cambiar el texto del menú según el idioma seleccionado
+                if (languagePrefix === "es/") {
+                    $(".nav-link[href='#about']").text("Sobre mí");
+                    $(".nav-link[href='#skills']").text("Habilidades");
+                    $(".nav-link[href='#resume']").text("Currículum");
+                    $(".nav-link[href='#projects']").text("Proyectos");
+                    $(".nav-link[href='#language']").text("Idioma");
+                } else {
+                    $(".nav-link[href='#about']").text("About Me");
+                    $(".nav-link[href='#skills']").text("Skills");
+                    $(".nav-link[href='#resume']").text("Resume");
+                    $(".nav-link[href='#projects']").text("Projects");
+                    $(".nav-link[href='#language']").text("Language");
+                }
+            }
+
+        // Función para obtener el idioma del navegador del usuario
+            function getLanguagePrefix() {
+            // Obtener el idioma del navegador del usuario
+                var language = navigator.language || navigator.userLanguage;
+
+            // Verificar el idioma y ajustar el prefijo del idioma en las rutas
+                if(language.startsWith("es")) {
+                    return "es/";
+                } else {
+                    return "en/";
+                }
+            }
+
+        // Cargar las páginas al inicio de la página utilizando el idioma del navegador
+            loadPages(getLanguagePrefix());
+        });
+    </script>
+    <script> 
+        $(function(){
+        // Función para cargar las páginas utilizando las rutas adecuadas y actualizar los textos del menú
+            function loadPages(languagePrefix) {
+            // Definir la ruta base de las páginas
+                var basePath = "pages/";
+
+            // Definir la extensión de las páginas
+                var extension = ".html";
+
+            // Cargar las páginas utilizando las rutas adecuadas
+                $("#hero").load(basePath + languagePrefix + "home" + extension);
+                $("#about").load(basePath + languagePrefix + "about" + extension);
+                $("#skills").load(basePath + languagePrefix + "skills" + extension);
+                $("#resume").load(basePath + languagePrefix + "resume" + extension);
+                $("#projects").load(basePath + languagePrefix + "projects" + extension);
+                
+            // Cambiar el texto del menú según el idioma seleccionado
+                switch (languagePrefix) {
+                case "es/":
+                    $(".nav-link[href='#about']").text("Sobre mí");
+                    $(".nav-link[href='#skills']").text("Habilidades");
+                    $(".nav-link[href='#resume']").text("Currículum");
+                    $(".nav-link[href='#projects']").text("Proyectos");
+                    $(".nav-link[href='#language']").text("Idioma");
+                    break;
+                case "en/":
+                default:
+                    $(".nav-link[href='#about']").text("About Me");
+                    $(".nav-link[href='#skills']").text("Skills");
+                    $(".nav-link[href='#resume']").text("Resume");
+                    $(".nav-link[href='#projects']").text("Projects");
+                    $(".nav-link[href='#language']").text("Language");
+                    break;
+                }
+            }
+
+        // Manejar el cambio de idioma desde el menú desplegable
+            $("#english, #spanish").click(function() {
+            // Obtener el prefijo del idioma desde el atributo "href" del enlace
+                var languagePrefix = $(this).attr("href").replace("#", "") + "/";
+
+            // Cargar las páginas y actualizar los textos del menú utilizando las rutas adecuadas
+                loadPages(languagePrefix);
+
+            // Evitar que se ejecute el comportamiento predeterminado del enlace
+                return false;
+            });
+        });
+    </script>
+
+    <title>Sixthxz</title>
+    <link rel="icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="css/fonts/fonts.css" />
+    <link rel="stylesheet" href="css/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/fontawesome-5.5/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/star-background.css" />
+</head>
+<body>  
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md tm-navbar" id="tmNav">              
+      <div class="container">   
+        <div class="tm-next">
+            <a href="#hero" class="tm-navbar-logo"><img src="img/logo-png.png" width="100px"></a>
+        </div>             
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars navbar-toggler-icon"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link tm-nav-link" href="#about">About Me</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link tm-nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link tm-nav-link" href="#resume">Resume</a>
+            </li> 
+            <li class="nav-item">
+                <a class="nav-link tm-nav-link" href="#projects">Projects</a>
+            </li>  
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle tm-nav-link" href="#language" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Language
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#en" id="english">English</a>
+                    <a class="dropdown-item" href="#es" id="spanish">Español</a>
+                    <!-- Agrega más opciones de idioma según sea necesario -->
+                </div>
+            </li>                   
+        </ul>
+    </div>        
+</div>
+</nav>
+
+<div class="tm-next tm-intro-next">
+  <a href="#about" class="text-center tm-down-arrow-link">
+    <i class="arrow white down"></i>
+</a>
+</div>  
+
+<!-- Hero section -->
+<section id="hero" class="text-white tm-font-big"></section>
+
+<!-- About -->
+<section id="about" class="tm-section-pad-top"></section>
+
+<!-- Skills -->
+<section id="skills" class="tm-section-pad-top"></section>
+
+<!-- Resume -->
+<section id="resume" class="tm-section-pad-top"></section>
+
+<!-- Projects -->
+<section id="projects" class="tm-section-pad-top"></section>
+
+<!-- Animation Control -->
+<script src="css/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="js/jquery.singlePageNav.min.js"></script>     
+<script src="js/bootstrap.min.js"></script> 
+<script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule="" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>
+
+<script>
+  window.onscroll = function() {
+    var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+    document.getElementById('stars').style.marginTop = (-1 * (scrollTop/4)) + "px";
+    document.getElementById('stars2').style.marginTop = (-1 * (scrollTop/3)) + "px";
+    document.getElementById('logo-container').style.marginTop= ((scrollTop/3)) + "px";
+    document.getElementById('stars3').style.marginTop = (-1 * (scrollTop/2)) + "px";
+}
+
+window.onmousemove = function(event){
+    var x = event.clientX;
+    var win_x = window.innerWidth / 2;
+    
+    document.getElementById('stars').style.marginLeft = (-1 * ((x - win_x)/12)) + "px";
+    document.getElementById('stars2').style.marginLeft = (-1 * ((x - win_x)/8)) + "px";
+    document.getElementById('stars3').style.marginLeft = (-1 * ((x - win_x)/4)) + "px";
+
+}
+
+$(function(){
+        // Detect window scroll and update navbar
+    $(window).scroll(function(e){          
+      if($(document).scrollTop() > 120) {
+        $('.tm-navbar').addClass("scroll");
+        $('.tm-navbar-logo').addClass("scroll");
+    } else {
+        $('.tm-navbar').removeClass("scroll");
+        $('.tm-navbar-logo').removeClass("scroll");
+    }
+});
+    
+        // Close mobile menu after click 
+    $('#tmNav a').on('click', function(){
+      $('.navbar-collapse').removeClass('show'); 
+  })
+
+        // Scroll to corresponding section with animation
+    $('#tmNav').singlePageNav();        
+    
+        // Add smooth scrolling to all links
+    $("a").on('click', function(event) {
+      if (this.hash !== "") {
+        event.preventDefault();
+        var hash = this.hash;
+
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+      }, 400, function(){
+          window.location.hash = hash;
+      });
+          } // End if
+      });
+
+        // Pop up
+    $('.tm-gallery').magnificPopup({
+      delegate: 'a',
+      type: 'image',
+      gallery: { enabled: true }
+  });
+
+    
+});
+</script>
+</body>
+</html>
