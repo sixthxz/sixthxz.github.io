@@ -48,7 +48,7 @@
 
             // Verificar el idioma y ajustar el prefijo del idioma en las rutas
                 if(language.startsWith("es")) {
-                    return "es/";
+                    return "en/";
                 } else {
                     return "en/";
                 }
@@ -120,7 +120,7 @@
     <link rel="stylesheet" href="css/star-background.css" />
 </head>
 <body>  
-    
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-md tm-navbar" id="tmNav">              
       <div class="container">   
@@ -146,7 +146,7 @@
                 <a class="nav-link tm-nav-link" href="#projects">Projects</a>
             </li>  
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle tm-nav-link" href="#language" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle tm-nav-link" href="#language" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="return false;">
                     Language
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -154,7 +154,7 @@
                     <a class="dropdown-item" href="#es" id="spanish">Español</a>
                     <!-- Agrega más opciones de idioma según sea necesario -->
                 </div>
-            </li>                   
+            </li>                  
         </ul>
     </div>        
 </div>
