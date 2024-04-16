@@ -8,75 +8,25 @@
 
     <!-- Load pages -->
     <script src="js/jquery-1.9.1.min.js"></script>   
-    <script> 
-        $(function(){
-        // Función para cargar las páginas utilizando las rutas adecuadas
-            function loadPages(languagePrefix) {
-            // Definir la ruta base de las páginas
-                var basePath = "pages/";
-
-            // Definir la extensión de las páginas
-                var extension = ".html";
-
-            // Cargar las páginas utilizando las rutas adecuadas
-                $("#hero").load(basePath + languagePrefix + "home" + extension);
-                $("#about").load(basePath + languagePrefix + "about" + extension);
-                $("#skills").load(basePath + languagePrefix + "skills" + extension);
-                $("#resume").load(basePath + languagePrefix + "resume" + extension);
-                $("#projects").load(basePath + languagePrefix + "projects" + extension);
-                
-            // Cambiar el texto del menú según el idioma seleccionado
-                if (languagePrefix === "es/") {
-                    $(".nav-link[href='#about']").text("Sobre mí");
-                    $(".nav-link[href='#skills']").text("Habilidades");
-                    $(".nav-link[href='#resume']").text("Currículum");
-                    $(".nav-link[href='#projects']").text("Proyectos");
-                    $(".nav-link[href='#language']").text("Idioma");
-                } else {
-                    $(".nav-link[href='#about']").text("About Me");
-                    $(".nav-link[href='#skills']").text("Skills");
-                    $(".nav-link[href='#resume']").text("Resume");
-                    $(".nav-link[href='#projects']").text("Projects");
-                    $(".nav-link[href='#language']").text("Language");
-                }
-            }
-
-        // Función para obtener el idioma del navegador del usuario
-            function getLanguagePrefix() {
-            // Obtener el idioma del navegador del usuario
-                var language = navigator.language || navigator.userLanguage;
-
-            // Verificar el idioma y ajustar el prefijo del idioma en las rutas
-                if(language.startsWith("es")) {
-                    return "en/";
-                } else {
-                    return "en/";
-                }
-            }
-
-        // Cargar las páginas al inicio de la página utilizando el idioma del navegador
-            loadPages(getLanguagePrefix());
-        });
-    </script>
-    <script> 
-        $(function(){
+    <script>
+    $(function(){
         // Función para cargar las páginas utilizando las rutas adecuadas y actualizar los textos del menú
-            function loadPages(languagePrefix) {
+        function loadPages(languagePrefix) {
             // Definir la ruta base de las páginas
-                var basePath = "pages/";
+            var basePath = "pages/";
 
             // Definir la extensión de las páginas
-                var extension = ".html";
+            var extension = ".html";
 
             // Cargar las páginas utilizando las rutas adecuadas
-                $("#hero").load(basePath + languagePrefix + "home" + extension);
-                $("#about").load(basePath + languagePrefix + "about" + extension);
-                $("#skills").load(basePath + languagePrefix + "skills" + extension);
-                $("#resume").load(basePath + languagePrefix + "resume" + extension);
-                $("#projects").load(basePath + languagePrefix + "projects" + extension);
-                
+            $("#hero").load(basePath + languagePrefix + "home" + extension);
+            $("#about").load(basePath + languagePrefix + "about" + extension);
+            $("#skills").load(basePath + languagePrefix + "skills" + extension);
+            $("#resume").load(basePath + languagePrefix + "resume" + extension);
+            $("#projects").load(basePath + languagePrefix + "projects" + extension);
+            
             // Cambiar el texto del menú según el idioma seleccionado
-                switch (languagePrefix) {
+            switch (languagePrefix) {
                 case "es/":
                     $(".nav-link[href='#about']").text("Sobre mí");
                     $(".nav-link[href='#skills']").text("Habilidades");
@@ -92,22 +42,37 @@
                     $(".nav-link[href='#projects']").text("Projects");
                     $(".nav-link[href='#language']").text("Language");
                     break;
-                }
             }
+        }
+
+        // Cargar las páginas al inicio de la página utilizando el idioma del navegador
+        function loadPagesWithLanguagePrefix(languagePrefix) {
+            loadPages(languagePrefix);
+        }
 
         // Manejar el cambio de idioma desde el menú desplegable
-            $("#english, #spanish").click(function() {
+        $("#english, #spanish").click(function() {
             // Obtener el prefijo del idioma desde el atributo "href" del enlace
-                var languagePrefix = $(this).attr("href").replace("#", "") + "/";
+            var languagePrefix = $(this).attr("href").replace("#", "") + "/";
 
             // Cargar las páginas y actualizar los textos del menú utilizando las rutas adecuadas
-                loadPages(languagePrefix);
+            loadPages(languagePrefix);
 
             // Evitar que se ejecute el comportamiento predeterminado del enlace
-                return false;
-            });
+            return false;
         });
-    </script>
+
+        // Obtener el idioma del navegador del usuario al cargar la página
+        var language = navigator.language || navigator.userLanguage;
+
+        // Verificar el idioma y ajustar el prefijo del idioma en las rutas
+        if (language.startsWith("es")) {
+            loadPagesWithLanguagePrefix("en/");
+        } else {
+            loadPagesWithLanguagePrefix("en/");
+        }
+    });
+</script>
 
     <title>Sixthxz</title>
     <link rel="icon" href="img/favicon.ico">
@@ -146,7 +111,7 @@
                 <a class="nav-link tm-nav-link" href="#projects">Projects</a>
             </li>  
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle tm-nav-link" href="#language" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="return false;">
+                <a class="nav-link dropdown-toggle tm-nav-link" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Language
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -208,7 +173,7 @@ window.onmousemove = function(event){
 }
 
 $(function(){
-        // Detect window scroll and update navbar
+        // Detecta mouse scroll y actualiza la barra de navegacion
     $(window).scroll(function(e){          
       if($(document).scrollTop() > 120) {
         $('.tm-navbar').addClass("scroll");
@@ -219,15 +184,15 @@ $(function(){
     }
 });
     
-        // Close mobile menu after click 
+        // Cerrar menu movil despues de interaccion
     $('#tmNav a').on('click', function(){
       $('.navbar-collapse').removeClass('show'); 
   })
 
-        // Scroll to corresponding section with animation
+        // Desplazar a la seccion correspondiente con animación
     $('#tmNav').singlePageNav();        
     
-        // Add smooth scrolling to all links
+        // Agrega desplazamiento suavizado
     $("a").on('click', function(event) {
       if (this.hash !== "") {
         event.preventDefault();
