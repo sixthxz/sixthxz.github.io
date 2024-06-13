@@ -67,7 +67,7 @@
 
         // Verificar el idioma y ajustar el prefijo del idioma en las rutas
         if (language.startsWith("es")) {
-            loadPagesWithLanguagePrefix("en/");
+            loadPagesWithLanguagePrefix("es/");
         } else {
             loadPagesWithLanguagePrefix("en/");
         }
@@ -185,9 +185,9 @@ $(function(){
 });
     
         // Cerrar menu movil despues de interaccion
-    $('#tmNav a').on('click', function(){
+/*    $('#tmNav a').on('click', function(){
       $('.navbar-collapse').removeClass('show'); 
-  })
+  })*/
 
         // Desplazar a la seccion correspondiente con animación
     $('#tmNav').singlePageNav();        
